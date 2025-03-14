@@ -2,20 +2,10 @@
 
 ###
 
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/v1ih">
-        <img height="180em" src="https://github-readme-stats.vercel.app/api?username=v1ih&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/v1ih">
-        <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=v1ih&layout=compact&langs_count=6&theme=tokyonight"/>
-      </a>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=v1ih&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=v1ih&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
+</div>
 
 ###
 
