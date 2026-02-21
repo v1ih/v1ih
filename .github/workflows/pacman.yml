@@ -14,7 +14,8 @@ jobs:
       - name: Generate Pacman Graph
         uses: abozanona/pacman-contribution-graph@main
         with:
-          username: v1ih
+          github_user_name: v1ih
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3
