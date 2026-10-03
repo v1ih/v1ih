@@ -1,0 +1,43 @@
+name: Generate profile animations
+
+# Pac-Man e cobrinha juntos: os dois geram em dist/ e um único passo publica
+# tudo no branch output. Antes eram dois workflows e o último apagava o outro.
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Generate pacman-contribution-graph.svg
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+
+      - name: Generate snake animations
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push everything to the output branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: output
+          commit_message: "Update profile animations [skip ci]"
